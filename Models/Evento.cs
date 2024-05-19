@@ -10,7 +10,11 @@ namespace EventPlanner.Models
         public int IdEvento { get; set; }
         public string NombreEvento { get; set; }
         public string Descripcion { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime FechaInicio { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime FechaFin { get; set; }
         public int IdUbicacion { get; set; }
         public Ubicacion Ubicacion { get; set; }
