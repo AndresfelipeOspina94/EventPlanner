@@ -20,7 +20,7 @@ namespace EventPlanner
               options.UseSqlServer(builder.Configuration.GetConnectionString("EventPlannerDB")));
 
             builder.Services.AddDbContext<EventPlannerContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("EventPlannerDB"))
+              options.UseSqlServer(builder.Configuration.GetConnectionString("EventPlannerDB"))
             );
 
             // Add services to the container.
