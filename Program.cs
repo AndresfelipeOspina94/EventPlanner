@@ -1,3 +1,6 @@
+using EventPlanner.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace EventPlanner
 {
     public class Program
@@ -5,6 +8,9 @@ namespace EventPlanner
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<EventPlannerContext>(options =>
+              options.UseSqlServer(builder.Configuration.GetConnectionString("EventPlannerDB")));
 
             // Add services to the container.
             builder.Services.AddRazorPages();
