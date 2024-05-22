@@ -1,0 +1,40 @@
+﻿@page
+@model EventPlanner.Pages.Participantes.IndexModel
+@{
+    ViewData["Title"] = "Índice de Participantes";
+}
+
+<h1>Índice de Participantes</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Crear Nuevo Participante</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Participantes)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a asp-page="./Edit" asp-route-id="@item.IdParticipante" class="btn btn-warning">Editar</a>
+                        <a asp-page="./Delete" asp-route-id="@item.IdParticipante" class="btn btn-danger ms-2">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

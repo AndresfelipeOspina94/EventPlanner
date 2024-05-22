@@ -1,0 +1,45 @@
+﻿@page "{id:int}"
+@model EventPlanner.Pages.Participantes.DeleteModel
+@{
+    ViewData["Title"] = "Eliminar Participante";
+}
+
+<h1>Eliminar Participante</h1>
+
+<h3>¿Está seguro que desea eliminar este participante?</h3>
+<div>
+    <h4>Participante</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Participante.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Participante.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Participante.Apellido)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Participante.Apellido)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Participante.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Participante.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Participante.Telefono)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Participante.Telefono)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Participante.IdParticipante" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn btn-primary">Volver a la Lista</a>
+    </form>
+</div>
