@@ -1,0 +1,40 @@
+﻿@page
+@model EventPlanner.Pages.Recursos.IndexModel
+@{
+    ViewData["Title"] = "Índice de Recursos";
+}
+
+<h1>Índice de Recursos</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Crear Nuevo Recurso</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre del Recurso</th>
+            <th>Cantidad</th>
+            <th>Descripción</th>
+            <th>Nombre del Evento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Recursos)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NombreRecurso)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Evento.NombreEvento)</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a asp-page="./Edit" asp-route-id="@item.IdRecurso" class="btn btn-warning">Editar</a>
+                        <a asp-page="./Delete" asp-route-id="@item.IdRecurso" class="btn btn-danger ms-2">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

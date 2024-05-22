@@ -1,0 +1,48 @@
+﻿@page "{id:int}"
+@model EventPlanner.Pages.Recursos.EditModel
+@{
+    ViewData["Title"] = "Editar Recurso";
+}
+
+<h1>Editar Recurso</h1>
+
+<h4>Recurso</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Recurso.IdRecurso" />
+            <div class="form-group">
+                <label asp-for="Recurso.NombreRecurso" class="control-label"></label>
+                <input asp-for="Recurso.NombreRecurso" class="form-control" />
+                <span asp-validation-for="Recurso.NombreRecurso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recurso.Cantidad" class="control-label"></label>
+                <input asp-for="Recurso.Cantidad" class="form-control" />
+                <span asp-validation-for="Recurso.Cantidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recurso.Descripcion" class="control-label"></label>
+                <textarea asp-for="Recurso.Descripcion" class="form-control"></textarea>
+                <span asp-validation-for="Recurso.Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recurso.IdEvento" class="control-label"></label>
+                <select asp-for="Recurso.IdEvento" class="form-control" asp-items="ViewBag.IdEvento"></select>
+                <span asp-validation-for="Recurso.IdEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+                <a asp-page="Index" class="btn btn-primary">Volver a la Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

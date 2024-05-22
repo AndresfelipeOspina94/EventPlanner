@@ -1,12 +1,12 @@
 ﻿@page
 @model EventPlanner.Pages.Eventos.CreateModel
+
 @{
-    ViewData["Title"] = "Crear Nuevo Evento";
+    ViewData["Title"] = "Crear Evento";
 }
 
-<h1>Crear Nuevo Evento</h1>
+<h1>Crear Evento</h1>
 
-<h4>Evento</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -34,20 +34,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="Evento.IdUbicacion" class="control-label"></label>
-                <select asp-for="Evento.IdUbicacion" class="form-control" asp-items="ViewBag.Ubicaciones"></select>
+                <input asp-for="Evento.IdUbicacion" class="form-control" />
                 <span asp-validation-for="Evento.IdUbicacion" class="text-danger"></span>
             </div>
-            <style>
-                .form-group {
-                    margin-top: 20px;
-                }
-            </style>
             <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-success" />
-                <a asp-page="Index" class="btn btn-primary">Volver a la Lista</a>
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </form>
     </div>
+</div>
+
+<div>
+    <a asp-page="Index">Volver al índice</a>
 </div>
 
 @section Scripts {
