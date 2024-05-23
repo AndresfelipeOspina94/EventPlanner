@@ -1,0 +1,45 @@
+﻿@page "{id:int}"
+@model EventPlanner.Pages.Recursos.DeleteModel
+@{
+    ViewData["Title"] = "Eliminar Recurso";
+}
+
+<h1>Eliminar Recurso</h1>
+
+<h3>¿Está seguro que desea eliminar este recurso?</h3>
+<div>
+    <h4>Recurso</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Recurso.NombreRecurso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Recurso.NombreRecurso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Recurso.Cantidad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Recurso.Cantidad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Recurso.Descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Recurso.Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Recurso.Evento.NombreEvento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Recurso.Evento.NombreEvento)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Recurso.IdRecurso" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn btn-primary">Volver a la Lista</a>
+    </form>
+</div>

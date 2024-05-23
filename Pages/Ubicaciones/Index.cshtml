@@ -1,0 +1,38 @@
+﻿@page
+@model EventPlanner.Pages.Ubicaciones.IndexModel
+@{
+    ViewData["Title"] = "Índice de Ubicaciones";
+}
+
+<h1>Índice de Ubicaciones</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Crear Nueva Ubicación</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre de la Ubicación</th>
+            <th>Capacidad</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Ubicaciones)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NombreUbicacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Capacidad)</td>
+                <td>@Html.DisplayFor(modelItem => item.Direccion)</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a asp-page="./Edit" asp-route-id="@item.IdUbicacion" class="btn btn-warning">Editar</a>
+                        <a asp-page="./Delete" asp-route-id="@item.IdUbicacion" class="btn btn-danger ms-2">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
