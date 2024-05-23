@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@model EventPlanner.Pages.Registros.DeleteModel
+@{
+    ViewData["Title"] = "Eliminar Registro";
+}
+
+<h1>Eliminar Registro</h1>
+
+<h3>¿Está seguro que desea eliminar este registro?</h3>
+<div>
+    <h4>Registro</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Registro.Evento.NombreEvento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Registro.Evento.NombreEvento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Registro.Participante.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Registro.Participante.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Registro.FechaRegistro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Registro.FechaRegistro.ToString("dd/MM/yyyy"))
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Registro.IdRegistro" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn btn-primary">Volver a la Lista</a>
+    </form>
+</div>

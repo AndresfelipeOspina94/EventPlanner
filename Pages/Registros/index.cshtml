@@ -1,0 +1,38 @@
+﻿@page
+@model EventPlanner.Pages.Registros.IndexModel
+@{
+    ViewData["Title"] = "Índice de Registros";
+}
+
+<h1>Índice de Registros</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Crear Nuevo Registro</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Evento</th>
+            <th>Participante</th>
+            <th>Fecha de Registro</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Registros)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Evento.NombreEvento)</td>
+                <td>@Html.DisplayFor(modelItem => item.Participante.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaRegistro)</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a asp-page="./Edit" asp-route-id="@item.IdRegistro" class="btn btn-warning">Editar</a>
+                        <a asp-page="./Delete" asp-route-id="@item.IdRegistro" class="btn btn-danger ms-2">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
